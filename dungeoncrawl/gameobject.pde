@@ -2,7 +2,7 @@ class GameObject {
   //instance variables
   PVector location;
   PVector velocity;
-  int lives;
+  int hp;
   int size;
   //constructor
   GameObject() {

@@ -36,7 +36,7 @@ class Button extends GameObject {
     text(label,xco+30,yco+70);
   }
   void act() {
-//check if mouse is clicked
+//check if button is clicked
     if (mousePressed&&mouseX > xco && mouseX < xco + wi && mouseY > yco && mouseY < yco + le) {
       clicked = true;
     } else {

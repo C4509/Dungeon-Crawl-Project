@@ -43,7 +43,7 @@ void game() {
 //initialize gameobjects
   while (i2 <   myObjects.size()) {
     GameObject b =   myObjects.get(i2);
-    if(b.lives==0){
+    if(b.hp==0){
       myObjects.remove(i2);
     } else
     b.act();   
@@ -57,7 +57,22 @@ void game() {
     d.show();
     i++;
   }
- 
+  //drawing mini map
+  int x = 0;
+  int y = 0;
+  float size = 5;
+  while(y < map.height){
+  color c = map.get(x,y);
+ fill(c);
+ square(x*5+70,y*5+70,size);
+ fill(orange);
+ square(myHero.roomx*5+70, myHero.roomy*5+70, size);
+ x=x+1;
+ if( x >+map.width){
+   x=0;
+   y=y+1;
+ }
+ }
 }
 
 void gameClicks() {

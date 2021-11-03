@@ -1,11 +1,11 @@
-class Bullet extends GameObject{
+ class Bullet extends GameObject{
   //instance variables
   int timer;  
   int fi;
     //constructors
   Bullet(PVector vel, color f, int s){
     timer=300;
-    lives = 1;
+    hp = 1;
     location = new PVector(myHero.location.x, myHero.location.y);
     velocity = vel;
     fi = f;
@@ -26,8 +26,21 @@ if (mode == game)    {
 super.act();
 timer--;
     if(timer ==0){
-      lives = 0;}
+      hp = 0;}
+      
+       //wall collision
+    if (location.x>width-120) {
+      hp = 0;
     }
-//    if( location.y = 120)
+    if (location.x<120) {
+      hp = 0;
+    }
+    if (location.y>height-120) {
+    hp = 0;
+    }
+    if (location.y<120) {
+     hp = 0;
+    }
+    } 
   }
 }

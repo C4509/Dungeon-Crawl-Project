@@ -8,7 +8,7 @@ class Weapon {
   Weapon(){
     shotTimer = 0;
     bulletSpeed = 5;
-    threshold = 10;
+    threshold = 20;
   }
   Weapon(int thr, int bs){
     shotTimer = 0;

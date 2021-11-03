@@ -9,11 +9,12 @@ class Hero extends GameObject {
   Hero() {
     super();
     size = 30;
-    lives=1;
+    hp=1;
     roomx=1;
     roomy=1;
     speed = 5;
     myWeapon = new Weapon();
+    ArrayList <Weapon> weapons;
   }
   //behaviour functions
   void show() {
@@ -70,11 +71,11 @@ class Hero extends GameObject {
       roomy++;
       location = new PVector(400, 120);
     } else  if (east != #FFFFFF && location.x == width-120 && location.y<= width/2 + 50 && location.y >= width/2 -50) {
-      roomx--;
+      roomx++;
       location = new PVector(120, 400);
     } else
       if (west != #FFFFFF && location.x == 120 && location.y<= width/2 + 50 && location.y >= width/2 -50) {
-        roomx++;
+        roomx--;
         location = new PVector(width-120, 400);
       }
       myWeapon.update();
