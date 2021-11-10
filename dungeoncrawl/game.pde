@@ -76,4 +76,8 @@ void game() {
 }
 
 void gameClicks() {
+  //if (myHero.hp ==0){
+  //  mode = gameover;
+    
+  //}
 }

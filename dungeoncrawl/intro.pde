@@ -1,6 +1,6 @@
 void intro(){
-  textSize(60);
- 
+  textSize(80);
+ textFont(fire);
   fill(orange);
   textMode(CENTER);
   text("RPG", 350,300);

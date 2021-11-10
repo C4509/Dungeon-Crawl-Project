@@ -1,4 +1,4 @@
-class Darkness {
+class Darkness extends GameObject{
   //instance variables
   float opacity;
   float x, y, size;

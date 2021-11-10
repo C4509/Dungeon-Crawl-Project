@@ -1,10 +1,11 @@
 class Gun extends Weapon{
-  
+  //instance variables
+  //constructor
   Gun(){
-   super(70,50); 
+   super(30,20); 
     
   }
-  
+  //behaviour functions
   void update(){
   super.update(); 
     

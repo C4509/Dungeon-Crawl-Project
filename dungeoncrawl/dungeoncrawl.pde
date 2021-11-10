@@ -1,3 +1,5 @@
+//Cierra Cheung
+//October 27, 2021
 //mode framework
 int mode;
 final int intro = 0;
@@ -17,6 +19,8 @@ color blue = #98D3F0;
 //map and map colors
 PImage map;
 color north, south, east, west;
+//font
+PFont fire;
 //mouse
 boolean clicked = false;
 boolean mouseReleased;
@@ -42,6 +46,12 @@ void setup(){
   myHero = new Hero();
   myObjects.add(myHero);
   map = loadImage("map2.png");
+  myObjects.add(new Enemy());
+  myObjects.add(new Follower(1,2));
+   myObjects.add(new Follower(2,1));
+   myObjects.add(new Lurker(1, 3));
+  //load font
+  fire = createFont("BreatheFireIi-2z9W.ttf", 80);
 //load darkness cells
  float x = 0;
   float y = 0;
@@ -59,14 +69,16 @@ void setup(){
 }
 
 void draw(){
+  //control if mouse is clicked
   if (mousePressed) hadPressed = true;
   if (hadPressed && !mousePressed) {
      mouseReleased = true;
      hadPressed = false;
   }
+  //initialize gif
   
   FallingStar.show();
-
+//initialize button class
   int i = 0;
   while (i <   B.size()) {
     Button b =   B.get(i);

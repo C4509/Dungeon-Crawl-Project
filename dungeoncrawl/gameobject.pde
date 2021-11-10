@@ -1,5 +1,6 @@
 class GameObject {
   //instance variables
+    int roomx, roomy;
   PVector location;
   PVector velocity;
   int hp;
@@ -13,7 +14,7 @@ class GameObject {
   void show() {
   }
   void act() {
-    
+    location.add(velocity);
     
     
   }

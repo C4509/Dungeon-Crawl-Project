@@ -2,7 +2,7 @@
   //instance variables
   int timer;  
   int fi;
-    //constructors
+    //constructor
   Bullet(PVector vel, color f, int s){
     timer=300;
     hp = 1;
@@ -21,7 +21,7 @@
     }
   }
   void act(){
-    location.add(velocity);
+    //control
 if (mode == game)    {
 super.act();
 timer--;
