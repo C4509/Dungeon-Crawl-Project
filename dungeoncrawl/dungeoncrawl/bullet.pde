@@ -4,7 +4,7 @@
   int fi;
     //constructor
   Bullet(PVector vel, color f, int s){
-    timer=300;
+    timer=100;
     hp = 1;
     location = new PVector(myHero.location.x, myHero.location.y);
     velocity = vel;

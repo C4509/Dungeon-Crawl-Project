@@ -40,17 +40,18 @@ void game() {
   rect(350, height-305, 100, 200);
   //initialize GameObjects
   int i2 = 0;
-//initialize gameobjects
+  //initialize gameobjects
   while (i2 <   myObjects.size()) {
     GameObject b =   myObjects.get(i2);
-    if(b.hp==0){
+    if (b.hp==0) {
+      println("hi");
       myObjects.remove(i2);
     } else
-    b.act();   
+      b.act();   
     b.show();
     i2++;
   }
-//initialize darkness cell arraylist 
+  //initialize darkness cell arraylist 
   int i = 0;
   while (i <   dark.size()) {
     Darkness d =   dark.get(i);   
@@ -61,19 +62,23 @@ void game() {
   int x = 0;
   int y = 0;
   float size = 5;
-  while(y < map.height){
-  color c = map.get(x,y);
- fill(c);
- square(x*5+70,y*5+70,size);
- fill(orange);
- square(myHero.roomx*5+70, myHero.roomy*5+70, size);
- x=x+1;
- if( x >+map.width){
-   x=0;
-   y=y+1;
- }
- }
+  while (y < map.height) {
+    color c = map.get(x, y);
+    fill(c);
+    square(x*5+70, y*5+70, size);
+    fill(orange);
+    square(myHero.roomx*5+70, myHero.roomy*5+70, size);
+    x=x+1;
+    if ( x >+map.width) {
+      x=0;
+      y=y+1;
+    }
+  }
 }
 
 void gameClicks() {
+  //if (myHero.hp ==0){
+  //  mode = gameover;
+
+  //}
 }
