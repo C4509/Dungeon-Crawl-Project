@@ -4,7 +4,7 @@
   int fi;
     //constructor
   Bullet(PVector vel, color f, int s){
-    timer=300;
+    timer=100;
     hp = 1;
     location = new PVector(myHero.location.x, myHero.location.y);
     velocity = vel;
@@ -22,11 +22,14 @@
   }
   void act(){
     //control
+    location.add(velocity);
 if (mode == game)    {
 super.act();
-timer--;
-    if(timer ==0){
-      hp = 0;}
+println(hp);
+//timer--;
+//    if(timer ==0){
+//      hp = 0;
+//      timer = 100;}
       
        //wall collision
     if (location.x>width-120) {

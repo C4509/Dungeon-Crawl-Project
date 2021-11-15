@@ -1,4 +1,4 @@
-class GameObject {
+ class GameObject {
   //instance variables
     int roomx, roomy;
   PVector location;

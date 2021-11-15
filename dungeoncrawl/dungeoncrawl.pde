@@ -45,9 +45,9 @@ void setup(){
   dark = new ArrayList<Darkness>(1000);
   myHero = new Hero();
   myObjects.add(myHero);
+ myObjects.add(new Archer(3,1));
   map = loadImage("map2.png");
   myObjects.add(new Enemy());
-  myObjects.add(new Follower(1,2));
    myObjects.add(new Follower(2,1));
    myObjects.add(new Lurker(1, 3));
   //load font
