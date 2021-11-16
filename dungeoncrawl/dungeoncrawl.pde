@@ -14,8 +14,11 @@ color lavender = #E7C1F5;
 color red = #FF0000;
 color b = #6ABAF5;
 color or = #F79807;
-color skyblue = #00D7FF;
+color skyblue = #57E2F0;
 color blue = #98D3F0;
+color pink = #FFC0CB;
+color mgreen = #B2F5B6;
+color green = #11D81D;
 //map and map colors
 PImage map;
 color north, south, east, west;
@@ -45,25 +48,51 @@ void setup(){
   dark = new ArrayList<Darkness>(1000);
   myHero = new Hero();
   myObjects.add(myHero);
- myObjects.add(new Archer(3,1));
+ //myObjects.add(new Archer(3,1));
   map = loadImage("map2.png");
-  myObjects.add(new Enemy());
-   myObjects.add(new Follower(2,1));
-   myObjects.add(new Lurker(1, 3));
+  //myObjects.add(new Enemy());
+  // myObjects.add(new Follower(2,1));
+  // myObjects.add(new Lurker(1, 3));
   //load font
   fire = createFont("BreatheFireIi-2z9W.ttf", 80);
 //load darkness cells
- float x = 0;
-  float y = 0;
-  float size = 5;
+ int x = 0;
+  int y = 0;
+  int size = 5;
   while (x<width && y < height) {
     dark.add(new Darkness(x, y, size));
-
-    x=x+size;
+     x = x + size;
     if (x >= width) {
       x=0;
       y = y + size;
     }
+  }
+//loading enemies
+int xc = 0;
+int yc = 0;
+while ( y < map.height){
+color roomColor=map.get(xc, yc);
+if  (roomColor == pink){
+  myObjects.add(new Archer(x,y));
+  
+}
+if  (roomColor == mgreen){
+  myObjects.add(new Lurker(xc,yc));
+  
+}
+if(roomColor == blue){
+  myObjects.add(new Follower(xc,yc));
+}
+if(roomColor == orange){
+  myObjects.add(new Enemy());
+}
+  x++;
+  if (x == map.width){
+    x = 0;
+    y ++;
+   
+  }
+    
   }
 
 }

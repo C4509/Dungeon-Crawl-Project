@@ -26,7 +26,6 @@ class EBullet extends GameObject{
     if(roomx == myHero.roomx && roomy == myHero.roomy){
     super.act();
       location.add(velocity);
-      println("o");
     }
   }
   
