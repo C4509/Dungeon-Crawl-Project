@@ -42,7 +42,7 @@ class Enemy extends GameObject{
     int i = 0;
     while (i <   myObjects.size()) {
     GameObject b =   myObjects.get(i);
-    if(b instanceof Bullet){
+    if(b instanceof Bullet && b.roomx == roomx && b.roomy == roomy){
       float d = dist(b.location.x, b.location.y, location.x, location.y);
       if (d <= size/2 + b.size/2){
         hp = hp-int(b.velocity.mag());

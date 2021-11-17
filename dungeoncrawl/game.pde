@@ -43,7 +43,7 @@ void game() {
   //initialize gameobjects
   while (i2 <   myObjects.size()) {
     GameObject b =   myObjects.get(i2);
-    if (b.hp==0) {
+    if (b.hp<=0) {
       println("hi");
       myObjects.remove(i2);
     } else
