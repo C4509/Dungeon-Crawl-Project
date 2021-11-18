@@ -31,8 +31,8 @@ class Lurker extends Enemy{
     i++;
   }
   
-       if (hp == 0){
-    myObjects.add(new Drop(location.x, location.y, roomx, roomy, green));
+       if (hp <= 0){
+    myObjects.add(new Drop(location.x, location.y, roomx, roomy, mgreen));
     
       
     }

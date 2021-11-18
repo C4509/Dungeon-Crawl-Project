@@ -18,7 +18,7 @@ class Follower extends Enemy {
     super.act();
     velocity = new PVector(myHero.location.x - location.x, myHero.location.y - location.y);
     velocity.setMag(3);
-    if (hp == 0){
+    if (hp <= 0){
     myObjects.add(new Drop(location.x, location.y, roomx, roomy, blue));
     
       

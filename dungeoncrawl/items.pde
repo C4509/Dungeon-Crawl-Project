@@ -12,6 +12,8 @@ class Drop extends GameObject{
     roomx= rx;
     roomy = ry;
     f = c;
+    type = 0;
+    w = new Rifle();
   }
   
   

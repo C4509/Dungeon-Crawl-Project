@@ -37,80 +37,77 @@ ArrayList <Darkness>dark;
 Hero myHero;
 //key
 boolean upkey, downkey, rightkey, leftkey, spacekey, akey;
-void setup(){
-  size(800,800);
+void setup() {
+  size(800, 800);
 
- background(255);
- //load gif
-  FallingStar = new AnimatedGIF(35,"frame_","_delay-0.03s.gif");
+  background(255);
+  //load gif
+  FallingStar = new AnimatedGIF(35, "frame_", "_delay-0.03s.gif");
   //load arraylists
-    myObjects = new ArrayList<GameObject>();
+  myObjects = new ArrayList<GameObject>();
   B = new ArrayList<Button>();
   dark = new ArrayList<Darkness>(1000);
-map = loadImage("map3.png");
+  map = loadImage("map2.png");
   myHero = new Hero();
   myObjects.add(myHero);
- myObjects.add(new Archer(3,1));
-  myObjects.add(new Enemy());
-  myObjects.add(new Follower(2,1));
-  myObjects.add(new Lurker(1, 3));
+  //myObjects.add(new Archer(3,1));
+  // myObjects.add(new Enemy());
+  // myObjects.add(new Follower(2,1));
+  // myObjects.add(new Lurker(1, 3));
   //load font
   fire = createFont("BreatheFireIi-2z9W.ttf", 80);
-//load darkness cells
- int x = 0;
+  //load darkness cells
+  int x = 0;
   int y = 0;
   int size = 5;
   while (x<width && y < height) {
     dark.add(new Darkness(x, y, size));
-     x = x + size;
+    x = x + size;
     if (x >= width) {
       x=0;
       y = y + size;
     }
   }
-//loading enemies
-//int xc = 0;
-//int yc = 0;
-//while ( y < map.height){
-//    x++;
-//color roomColor=map.get(xc, yc);
-//if  (roomColor == pink){
-//  myObjects.add(new Archer(x,y));
-//  println("A");
-  
-//}
-//if  (roomColor == mgreen){
-//  myObjects.add(new Lurker(xc,yc));
-  
-//}
-//if(roomColor == blue){
-//  myObjects.add(new Follower(xc,yc));
-//}
-//if(roomColor == orange){
-//  myObjects.add(new Enemy());
-//}
+  //loading enemies
+  int xc = 0;
+  int yc = 0;
+  while ( yc < map.height) {
+    xc++;
+    color roomColor=map.get(xc, yc);
+    if  (roomColor == pink) {
+      myObjects.add(new Archer(xc, yc));
+      println("A", xc, yc);
+    }
+    if  (roomColor == mgreen) {
+      myObjects.add(new Lurker(xc, yc));
+      println("L", xc, yc);
+    }
+    if (roomColor == blue) {
+      myObjects.add(new Follower(xc, yc));
+      println("F", xc, yc);
+    }
+    if (roomColor == orange) {
+      myObjects.add(new Enemy());
+      println("A", 1, 1);
+    }
 
-//  if (x == map.width){
-//    x = 0;
-//    y ++;
-   
-//  }
-    
-//  }
-
+    if (xc == map.width) {
+      xc = 0;
+      yc ++;
+    }
+  }
 }
 
-void draw(){
+void draw() {
   //control if mouse is clicked
   if (mousePressed) hadPressed = true;
   if (hadPressed && !mousePressed) {
-     mouseReleased = true;
-     hadPressed = false;
+    mouseReleased = true;
+    hadPressed = false;
   }
   //initialize gif
-  
   FallingStar.show();
-//initialize button class
+  //initialize button class
   int i = 0;
   while (i <   B.size()) {
     Button b =   B.get(i);
@@ -119,7 +116,7 @@ void draw(){
     i++;
   }
 
-    //mode framework
+  //mode framework
   if (mode==intro) {
     intro();
   } else if (mode==game) {
@@ -131,5 +128,4 @@ void draw(){
   } else {
     println("Error: Mode = " + mode);
   }
-  
 }

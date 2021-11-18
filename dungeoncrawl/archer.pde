@@ -29,7 +29,7 @@ class Archer extends Enemy {
         myObjects.add(new EBullet(aimvector, new PVector(location.x, location.y), roomx, roomy));
       shotTimer=0;
     }
-        if (hp == 0){
+        if (hp <= 0){
     myObjects.add(new Drop(location.x, location.y, roomx, roomy, pink));
     
       
