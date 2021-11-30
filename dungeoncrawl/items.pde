@@ -1,7 +1,9 @@
 class Drop extends GameObject{
   //instance variables
   int type;
+  int r;
   Weapon w;
+  AnimatedGIF currentact;
   color f;
   //constructor(s)
   Drop(float x, float y, int rx, int ry, color c){
@@ -12,8 +14,16 @@ class Drop extends GameObject{
     roomx= rx;
     roomy = ry;
     f = c;
-    type = 0;
+    r = int(random(2));
+    if (r == 0){
     w = new Rifle();
+    } else if(r == 1){
+      w = new Shooter();}
+      else if (r == 2){
+        w = new Gun();
+      }
+    currentact = health;
+    println(r);
   }
   
   
@@ -22,7 +32,20 @@ class Drop extends GameObject{
     stroke(lavender);
     strokeWeight(2);
     fill(f);
-    circle(location.x, location.y, size);
+
+    if(f == pink){
+      type = AMMO;
+       circle(location.x, location.y, size);
+    } 
+    if(f == blue){
+      type = GUN;
+       circle(location.x, location.y, size);
+    }
+    
+    if (f == mgreen){
+      type = HEALTH;
+      currentact.show(location.x, location.y, size, size);
+    }
     
     
   }

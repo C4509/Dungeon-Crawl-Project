@@ -1,11 +1,14 @@
 class Lurker extends Enemy{
  //constructor
-  Lurker(int x, int y) {
+  Lurker(int x, int y, float xc, float yc) {
     super(100, 50, x, y);
+    location = new PVector(xc, yc);
+    xp = 5;
   }
   //behaviour functions
   void show() {
     if (roomx == myHero.roomx && roomy == myHero.roomy) {
+      fill(mgreen);
       circle(location.x, location.y, size);
       fill(255);
       textSize(20);
@@ -15,6 +18,7 @@ class Lurker extends Enemy{
 
   void act() {
     super.act();
+    //attacking hero
      int i = 0;
     while (i <   myObjects.size()) {
     GameObject b =   myObjects.get(i);
@@ -30,8 +34,8 @@ class Lurker extends Enemy{
     }
     i++;
   }
-  
-       if (hp <= 0){
+  //dropping item
+       if (hp <= 0&& r<= 80){
     myObjects.add(new Drop(location.x, location.y, roomx, roomy, mgreen));
     
       

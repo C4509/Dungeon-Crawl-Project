@@ -17,6 +17,9 @@ void keyPressed() {
   if (keyCode == 'a' || keyCode == 'A') { 
     akey = true;
   }
+    if (keyCode == 'p' || keyCode == 'P') { 
+    pkey = true;
+  }
 }
 
 void keyReleased() {
@@ -37,5 +40,8 @@ void keyReleased() {
   }
     if (keyCode == 'a' ||keyCode == 'A') { 
     akey = false;
+  }
+    if (keyCode == 'p' || keyCode == 'P') { 
+    pkey = false;
   }
 }

@@ -44,7 +44,6 @@ void game() {
   while (i2 <   myObjects.size()) {
     GameObject b =   myObjects.get(i2);
     if (b.hp<=0) {
-      println("hi");
       myObjects.remove(i2);
     } else
       b.act();   
@@ -74,11 +73,12 @@ void game() {
       y=y+1;
     }
   }
+        if (myHero.hp <=0){
+    mode = gameover;
+  }
+  if(pkey){ mode = pause;}
 }
 
 void gameClicks() {
-  //if (myHero.hp ==0){
-  //  mode = gameover;
 
-  //}
 }

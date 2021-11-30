@@ -6,6 +6,10 @@ final int intro = 0;
 final int game = 1;
 final int pause = 2;
 final int gameover = 3;
+//item types
+final int GUN = 0;
+final int AMMO = 1;
+final int HEALTH = 3;
 //colour variables
 color aqua = #0FF5E3;
 color orange = #F59D0F;
@@ -25,24 +29,35 @@ PImage map;
 color north, south, east, west;
 //font
 PFont fire;
-//mouse
+//gif
+AnimatedGIF FallingStar;
+AnimatedGIF manup;
+AnimatedGIF mandown;
+AnimatedGIF manright;
+AnimatedGIF manleft;
+AnimatedGIF health;
 boolean clicked = false;
 boolean mouseReleased;
 boolean pressed, hadPressed;
 //arraylists
 ArrayList<GameObject> myObjects;
 ArrayList<Button> B;
-AnimatedGIF FallingStar;
 ArrayList <Darkness>dark;
 Hero myHero;
+  boolean r;
 //key
-boolean upkey, downkey, rightkey, leftkey, spacekey, akey;
+boolean upkey, downkey, rightkey, leftkey, spacekey, akey, pkey;
 void setup() {
   size(800, 800);
 
   background(255);
   //load gif
   FallingStar = new AnimatedGIF(35, "frame_", "_delay-0.03s.gif");
+  manup = new AnimatedGIF(4,10,"man/up/sprite_", ".png");
+  mandown = new AnimatedGIF(4,10,"man/down/sprite_", ".png");
+  manright = new AnimatedGIF(4,10,"man/right/sprite_", ".png");
+  manleft = new AnimatedGIF(4,10,"man/left/sprite_", ".png");
+  health = new AnimatedGIF(4,10,"_",".png");
   //load arraylists
   myObjects = new ArrayList<GameObject>();
   B = new ArrayList<Button>();
@@ -50,10 +65,6 @@ void setup() {
   map = loadImage("map2.png");
   myHero = new Hero();
   myObjects.add(myHero);
-  //myObjects.add(new Archer(3,1));
-  // myObjects.add(new Enemy());
-  // myObjects.add(new Follower(2,1));
-  // myObjects.add(new Lurker(1, 3));
   //load font
   fire = createFont("BreatheFireIi-2z9W.ttf", 80);
   //load darkness cells
@@ -75,20 +86,22 @@ void setup() {
     xc++;
     color roomColor=map.get(xc, yc);
     if  (roomColor == pink) {
-      myObjects.add(new Archer(xc, yc));
-      println("A", xc, yc);
+      myObjects.add(new Archer(xc, yc, random(120,width-120),random(120, height - 120)));
+      myObjects.add(new Archer(xc, yc, random(120,width-120),random(120, height - 120)));
+      myObjects.add(new Archer(xc, yc, random(120,width-120),random(120, height - 120)));
     }
     if  (roomColor == mgreen) {
-      myObjects.add(new Lurker(xc, yc));
-      println("L", xc, yc);
+      myObjects.add(new Lurker(xc, yc, random(120,width-120),random(120, height - 120)));
+      myObjects.add(new Lurker(xc, yc, random(120,width-120),random(120, height - 120)));
+      myObjects.add(new Lurker(xc, yc, random(120,width-120),random(120, height - 120)));
     }
     if (roomColor == blue) {
-      myObjects.add(new Follower(xc, yc));
-      println("F", xc, yc);
+      myObjects.add(new Follower(xc, yc, random(120,width-120),random(120, height - 120)));
+      myObjects.add(new Follower(xc, yc, random(120,width-120),random(120, height - 120)));
+      myObjects.add(new Follower(xc, yc, random(120,width-120),random(120, height - 120)));
     }
     if (roomColor == orange) {
       myObjects.add(new Enemy());
-      println("A", 1, 1);
     }
 
     if (xc == map.width) {

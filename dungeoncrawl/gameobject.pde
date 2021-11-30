@@ -5,6 +5,9 @@
   PVector velocity;
   int hp;
   int size;
+  int speed;
+  int xp;
+  
   //constructor
   GameObject() {
     location = new PVector(width/2,height/2);
@@ -13,20 +16,36 @@
   //behaviour functions
   void show() {
   }
-  //boolean inroom(GameObject myObjects){
-  //  if (roomx == myObjects.roomx && roomy == myObjects.roomy){
-    // return true;
-  // } else {
-    //return false;
-    //}
-    
-  //boolean Collide(GameObject myObjects){
-  //  float d = dist(myObjects.location.y, myObjects.location.y, location.x, location.y);
-  //  if(inroom(myObjects) && d < size/2 + myObjects.size/2){
-  //    return true;
-  //  } else {return false;
-  //  }
-  //}
+  //check if object is in room
+  boolean inroom(GameObject b){
+    if (roomx == b.roomx && roomy == b.roomy){
+     return true;
+   } else {
+    return false;
+    }
+  }
+  //check for collisions
+  boolean Collide(GameObject b){
+     
+    float d = dist(b.location.x, b.location.y, location.x, location.y);
+    if(inroom(b) && d < size/2 + b.size/2){
+      return true;
+    } else {return false;
+    }
+
+      
+  }
+  
+      void explode(int n){
+      int i = 0;
+      while(i<n){
+        myObjects.add(new Particle(location.x, location.y));
+        i++;
+      }
+      
+      
+    }
+  
   
   void act() {
     location.add(velocity);

@@ -1,10 +1,11 @@
 void intro(){
+r = true;
   textSize(80);
  textFont(fire);
   fill(orange);
   textMode(CENTER);
   text("RPG", 350,300);
- B.add(new Button("Start",300,500,200,100,lavender,aqua,orange));
+if (r){ B.add(new Button("Start",300,500,200,100,mgreen,orange,blue, 0));}
 
   
   

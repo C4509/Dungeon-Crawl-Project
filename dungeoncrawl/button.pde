@@ -7,10 +7,11 @@ class Button extends GameObject {
   color normal;
   color highlight;
   color border;
+  color textc;
   String label;
   int size = 5;
 //constructor
-  Button(String p, int x, int y, int w, int l, color f1, color f2, color f3) {
+  Button(String p, int x, int y, int w, int l, color f1, color f2, color f3, color f4) {
     wi = w;
     le = l;
     yco = y;
@@ -18,6 +19,7 @@ class Button extends GameObject {
     normal = f1;
     highlight = f2;
     border = f3;
+    textc = f4;
     label = p;
   }
   //behaviour functionss
@@ -31,7 +33,7 @@ class Button extends GameObject {
     strokeWeight(5);
     stroke(border);
     rect(xco, yco, wi, le);
-    fill(0);
+    fill(textc);
     textSize(60);
     text(label,xco+30,yco+70);
   }

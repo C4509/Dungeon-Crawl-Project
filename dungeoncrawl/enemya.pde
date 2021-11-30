@@ -1,12 +1,15 @@
 class Follower extends Enemy {
 
   //constructor
-  Follower(int x, int y) {
+  Follower(int x, int y, float xc, float yc) {
     super(100, 50, x, y);
+    location = new PVector(xc, yc);
+    xp = 2;
   }
   //behaviour functions
   void show() {
     if (roomx == myHero.roomx && roomy == myHero.roomy) {
+      fill(blue);
       circle(location.x, location.y, size);
       fill(255);
       textSize(20);
@@ -19,8 +22,9 @@ class Follower extends Enemy {
     velocity = new PVector(myHero.location.x - location.x, myHero.location.y - location.y);
     velocity.setMag(3);
     if (hp <= 0){
+      if(r <= 80){
     myObjects.add(new Drop(location.x, location.y, roomx, roomy, blue));
-    
+      }
       
     }
     }
