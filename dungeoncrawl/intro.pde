@@ -5,14 +5,17 @@ r = true;
   fill(orange);
   textMode(CENTER);
   text("RPG", 350,300);
-if (r){ B.add(new Button("Start",300,500,200,100,mgreen,orange,blue, 0));}
+  textSize(60);
+  Start.show();
+  Start.act();
+  
 
   
   
 }
 
 void introClicks(){
-  if(clicked == true){
+  if(Start.clicked == true){
     mode = game;
   }
   

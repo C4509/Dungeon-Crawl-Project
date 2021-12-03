@@ -36,12 +36,18 @@ AnimatedGIF mandown;
 AnimatedGIF manright;
 AnimatedGIF manleft;
 AnimatedGIF health;
-boolean clicked = false;
+
 boolean mouseReleased;
 boolean pressed, hadPressed;
+//load buttons
+Button Start;
+Button Damage;
+Button Speed;
+Button HP;
+Button back;
+Bullet bu;
 //arraylists
 ArrayList<GameObject> myObjects;
-ArrayList<Button> B;
 ArrayList <Darkness>dark;
 Hero myHero;
   boolean r;
@@ -58,9 +64,14 @@ void setup() {
   manright = new AnimatedGIF(4,10,"man/right/sprite_", ".png");
   manleft = new AnimatedGIF(4,10,"man/left/sprite_", ".png");
   health = new AnimatedGIF(4,10,"_",".png");
+  //load buttons
+  Start = new Button("Start",300,500,200,100,mgreen,orange,blue, 0);
+  HP = new Button("a", 150, 270, 75,75, 255,0,255,orange);
+  Speed = new Button("a", 150, 420, 50, 70, 255,0,255,orange);
+  Damage = new Button("a", 150, 570, 50, 70, 255,0,255,orange);
+  back = new Button("BACK TO GAME", 50, 670, 250, 100, mgreen, orange, blue, lavender);
   //load arraylists
   myObjects = new ArrayList<GameObject>();
-  B = new ArrayList<Button>();
   dark = new ArrayList<Darkness>(1000);
   map = loadImage("map2.png");
   myHero = new Hero();
@@ -120,14 +131,6 @@ void draw() {
   }
   //initialize gif
   FallingStar.show();
-  //initialize button class
-  int i = 0;
-  while (i <   B.size()) {
-    Button b =   B.get(i);
-    b.act();   
-    b.show();
-    i++;
-  }
 
   //mode framework
   if (mode==intro) {

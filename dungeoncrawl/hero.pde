@@ -4,6 +4,7 @@ class Hero extends GameObject {
   int t; 
   int f; 
   final int maxhp;
+  int damage;
   float trans;
   AnimatedGIF currentact;
 
@@ -25,6 +26,7 @@ class Hero extends GameObject {
     t = 100;
     f = 100;
     trans = 255;
+    damage = 0;
   }
   //behaviour functions
   void show() {
@@ -114,12 +116,12 @@ class Hero extends GameObject {
     int i = 0;
     while (i <   myObjects.size()) {
       GameObject b =   myObjects.get(i);
-      if (b instanceof Enemy && (Collide(b))){
+      if (b instanceof Enemy && (Collide(b)) && f >+t){
         hp = hp-1;
         println(hp);
         f = 0;
       }
-      if(b instanceof EBullet && (Collide(b))){
+      if(b instanceof EBullet && (Collide(b))&&f>=t){
         hp = hp-1;
         println(hp);
         b.hp=0;
@@ -145,10 +147,14 @@ class Hero extends GameObject {
         
       }
       i++;
-    }
+    }         
+
       if (hp <=0){
     mode = gameover;
 
   }
   }
-}
+  void mouseReleased(){
+
+ }
+  }

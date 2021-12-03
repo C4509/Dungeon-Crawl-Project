@@ -7,11 +7,14 @@ class Message extends GameObject {
     location = loc;
     m = v;
     op = 0;
+    hp = 1;
+    //roomx = rx;
+    //roomy = ry;
   }
   //behaviour functions
     void show(){
-      fill(255, op);
-      op = op + 5;
+      fill(255);
+    op = op - 1;
       text(m, location.x, location.y);
       
     }

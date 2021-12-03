@@ -3,6 +3,7 @@ class Weapon {
   int shotTimer;
   int bulletSpeed;
   int threshold;
+
   
   //constructors
   Weapon(){
@@ -27,6 +28,7 @@ class Weapon {
     if ( shotTimer >= threshold){
       PVector aimvector= new PVector(mouseX-myHero.location.x,mouseY-myHero.location.y);
       aimvector.setMag(bulletSpeed);
+      //bu = new Bullet(aimvector, aqua, 10);
         myObjects.add(new Bullet(aimvector, aqua, 10));
       shotTimer=0;
     }
