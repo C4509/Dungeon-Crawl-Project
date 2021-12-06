@@ -3,9 +3,10 @@ class Particle extends GameObject {
   int t;
 
   //constructor
-  Particle(float x, float y) { 
+  Particle(float x, float y, int rx, int ry) { 
     hp = 1;
-    
+    roomx = rx;
+    roomy = ry;
     
     location=new PVector(x, y);
     velocity = new PVector(0, 1);

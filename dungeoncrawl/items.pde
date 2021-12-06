@@ -34,11 +34,11 @@ class Drop extends GameObject{
     fill(f);
 
     if(f == pink){
-      type = AMMO;
+      type = GUN;
        circle(location.x, location.y, size);
     } 
     if(f == blue){
-      type = GUN;
+      type = AMMO;
        circle(location.x, location.y, size);
     }
     

@@ -50,7 +50,7 @@ class Enemy extends GameObject {
           if (hp<=0) {
             explode(size);
             myHero.xp += xp;
-            myObjects.add(new Message(location, "+" + xp));
+            myObjects.add(new Message(location, "+" + xp, roomx, roomy));
           }
         }
       }

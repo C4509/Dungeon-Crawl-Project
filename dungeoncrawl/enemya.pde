@@ -4,7 +4,7 @@ class Follower extends Enemy {
   Follower(int x, int y, float xc, float yc) {
     super(100, 50, x, y);
     location = new PVector(xc, yc);
-    xp = 2;
+    xp = 2; 
   }
   //behaviour functions
   void show() {

@@ -39,7 +39,7 @@
       void explode(int n){
       int i = 0;
       while(i<n){
-        myObjects.add(new Particle(location.x, location.y));
+        myObjects.add(new Particle(location.x, location.y, roomx, roomy));
         i++;
       }
       

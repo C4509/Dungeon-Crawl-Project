@@ -34,6 +34,7 @@ void pauseClicks() {
    
     if(Damage.clicked==true && myHero.xp >=5 && mode == pause){
       myHero.damage = myHero.damage + 1;
+       myHero.xp = myHero.xp - 5;
     }
     if(Speed.clicked==true && myHero.xp>=5 && mode == pause){
       myHero.speed = myHero.speed + 1;

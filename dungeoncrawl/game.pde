@@ -43,11 +43,14 @@ void game() {
   //initialize gameobjects
   while (i2 <   myObjects.size()) {
     GameObject b =   myObjects.get(i2);
-    if (b.hp<=0) {
-      myObjects.remove(i2);
-    } else
+     if(b.roomx == myHero.roomx && b.roomy == myHero.roomy){
       b.act();   
-    b.show();
+    b.show();}
+      if (b.hp<=0) {
+      myObjects.remove(i2);
+    }
+
+    
     i2++;
   }
   //initialize darkness cell arraylist 

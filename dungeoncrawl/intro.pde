@@ -15,7 +15,7 @@ r = true;
 }
 
 void introClicks(){
-  if(Start.clicked == true){
+  if(Start.c == true){
     mode = game;
   }
   

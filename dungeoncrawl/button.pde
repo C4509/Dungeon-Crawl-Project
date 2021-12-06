@@ -11,6 +11,7 @@ class Button extends GameObject {
   String label;
   int size = 5;
   boolean clicked = false;
+  boolean c = false;
 //constructor
   Button(String p, int x, int y, int w, int l, color f1, color f2, color f3, color f4) {
     wi = w;
@@ -44,6 +45,11 @@ class Button extends GameObject {
       clicked = true;
     } else {
       clicked = false;
+    }
+    if (mousePressed&&mouseX > xco && mouseX < xco + wi && mouseY > yco && mouseY < yco + le) {
+      c = true;
+    } else {
+      c = false;
     }
   }
 }

@@ -134,7 +134,7 @@ class Hero extends GameObject {
           myWeapon = item.w;
         }
      else if(item.type == AMMO){
-            myWeapon.bulletSpeed = myWeapon.bulletSpeed+5;
+            myWeapon.bulletSpeed = myWeapon.bulletSpeed + 5;
           }
        else if(item.type == HEALTH){
             hp = hp + 100;
