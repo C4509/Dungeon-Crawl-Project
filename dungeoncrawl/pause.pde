@@ -1,8 +1,9 @@
 void pause() {
   background(aqua);
   textSize(60);
+  textMode(NORMAL);
   strokeWeight(3);
- // B.add(new Button("a", 150, 120, 50, 50, 255,0,255,orange));
+
  textSize(60);
 Damage.show();
 Damage.act();

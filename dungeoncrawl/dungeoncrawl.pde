@@ -69,11 +69,11 @@ void setup() {
   HP = new Button("a", 150, 270, 75,75, 255,0,255,orange);
   Speed = new Button("a", 150, 420, 50, 70, 255,0,255,orange);
   Damage = new Button("a", 150, 570, 50, 70, 255,0,255,orange);
-  back = new Button("BACK TO GAME", 50, 670, 250, 100, mgreen, orange, blue, lavender);
+  back = new Button("BACK TO GAME", 50, 670, 375, 100, aqua, bl, pink, lavender);
   //load arraylists
   myObjects = new ArrayList<GameObject>();
   dark = new ArrayList<Darkness>(1000);
-  map = loadImage("map2.png");
+  map = loadImage("map6.png");
   myHero = new Hero();
   myObjects.add(myHero);
   //load font

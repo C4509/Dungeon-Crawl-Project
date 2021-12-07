@@ -36,7 +36,7 @@ class Button extends GameObject {
     stroke(border);
     rect(xco, yco, wi, le);
     fill(textc);
-
+    textMode(NORMAL);
     text(label,xco+30,yco+70);
   }
   void act() {
