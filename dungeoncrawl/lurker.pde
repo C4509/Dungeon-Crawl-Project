@@ -4,6 +4,7 @@ class Lurker extends Enemy{
     super(100, 50, x, y);
     location = new PVector(xc, yc);
     xp = 5;
+     s = 1;
   }
   //behaviour functions
   void show() {
@@ -27,7 +28,6 @@ class Lurker extends Enemy{
      if (d <= size/2+ 100 + b.size/2 + 100  && roomx == myHero.roomx && roomy == myHero.roomy){
     velocity = new PVector(myHero.location.x - location.x, myHero.location.y - location.y);
     velocity.setMag(3);
-    println(location.x);
     }
     else{ velocity = new PVector(0,0);
     }
@@ -40,5 +40,6 @@ class Lurker extends Enemy{
     
       
     }
+     if (mode == gameover){hp = 100;}
   }
 }

@@ -2,10 +2,13 @@
 //October 27, 2021
 //mode framework
 int mode;
+boolean l = false;
+boolean a = false;
 final int intro = 0;
 final int game = 1;
 final int pause = 2;
 final int gameover = 3;
+final int SELECT = 4;
 //item types
 final int GUN = 0;
 final int AMMO = 1;
@@ -45,14 +48,19 @@ Button Damage;
 Button Speed;
 Button HP;
 Button back;
+Button Back1;
+Button Back2;
+Button Weapons;
 Bullet bu;
+Button ADVANCE;
+
 //arraylists
 ArrayList<GameObject> myObjects;
 ArrayList <Darkness>dark;
 Hero myHero;
   boolean r;
 //key
-boolean upkey, downkey, rightkey, leftkey, spacekey, akey, pkey;
+boolean upkey, downkey, rightkey, leftkey, spacekey, akey, pkey, onekey, twokey, threekey, fourkey, fivekey;
 void setup() {
   size(800, 800);
 
@@ -70,10 +78,16 @@ void setup() {
   Speed = new Button("a", 150, 420, 50, 70, 255,0,255,orange);
   Damage = new Button("a", 150, 570, 50, 70, 255,0,255,orange);
   back = new Button("BACK TO GAME", 50, 670, 375, 100, aqua, bl, pink, lavender);
+  Weapons = new Button("WEAPONS", 475, 670, 275, 100, aqua, bl, pink, lavender);
+  Back1 = new Button("INTRO", 300, 570, 200, 100, mgreen,orange,blue, 0);
+  Back2 = new Button("INTRO", 150, 670, 200, 100, mgreen,orange,blue, 0);
+  ADVANCE = new Button("ADVANCE", 475, 670, 275, 100, mgreen,orange,blue, 0);
   //load arraylists
   myObjects = new ArrayList<GameObject>();
   dark = new ArrayList<Darkness>(1000);
+  if (l == false){
   map = loadImage("map6.png");
+    } else if (l == true){  map = loadImage("map7.png");}
   myHero = new Hero();
   myObjects.add(myHero);
   //load font
@@ -111,10 +125,9 @@ void setup() {
       myObjects.add(new Follower(xc, yc, random(120,width-120),random(120, height - 120)));
       myObjects.add(new Follower(xc, yc, random(120,width-120),random(120, height - 120)));
     }
-    if (roomColor == orange) {
-      myObjects.add(new Enemy());
+    if (roomColor == lavender) {
+      myObjects.add(new BOSS(xc, yc, random(120,width-120),random(120, height - 120)));
     }
-
     if (xc == map.width) {
       xc = 0;
       yc ++;
@@ -131,7 +144,6 @@ void draw() {
   }
   //initialize gif
   FallingStar.show();
-
   //mode framework
   if (mode==intro) {
     intro();
@@ -141,6 +153,8 @@ void draw() {
     pause();
   } else if (mode==gameover) {
     gameover();
+  } else if (mode == SELECT) {
+    SELECT();
   } else {
     println("Error: Mode = " + mode);
   }

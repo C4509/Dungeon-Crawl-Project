@@ -2,6 +2,8 @@ class Enemy extends GameObject {
   //instance variables
   int r;
   int xp;
+  int score;
+  int s;
   //contructors
   Enemy() {
 
@@ -11,6 +13,8 @@ class Enemy extends GameObject {
     roomx = 1;
     roomy = 1;
     size = 50;
+    score = 0;
+    
   }
 
   Enemy(int _hp, int s, int x, int y) {
@@ -51,10 +55,13 @@ class Enemy extends GameObject {
             explode(size);
             myHero.xp += xp;
             myObjects.add(new Message(location, "+" + xp, roomx, roomy));
+            score = score + s;
+                myHero.score = score + s; 
+            println(myHero.score);
           }
         }
       }
       i++;
     }
-  }
+  }       
 }

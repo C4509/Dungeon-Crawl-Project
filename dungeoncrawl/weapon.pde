@@ -4,6 +4,10 @@ class Weapon {
   int bulletSpeed;
   int threshold;
   int maxspe;
+  boolean e;
+  boolean s;
+  boolean g;
+  boolean r;
   
   //constructors
   Weapon(){
@@ -37,6 +41,4 @@ class Weapon {
     
     
   }
-  
-
   

@@ -5,6 +5,7 @@ class Follower extends Enemy {
     super(100, 50, x, y);
     location = new PVector(xc, yc);
     xp = 2; 
+    s = 1;
   }
   //behaviour functions
   void show() {
@@ -25,7 +26,7 @@ class Follower extends Enemy {
       if(r <= 80){
     myObjects.add(new Drop(location.x, location.y, roomx, roomy, blue));
       }
-      
+      if (mode == gameover){hp = 100;}
     }
     }
   }

@@ -43,7 +43,7 @@ void game() {
   //initialize gameobjects
   while (i2 <   myObjects.size()) {
     GameObject b =   myObjects.get(i2);
-     if(b.roomx == myHero.roomx && b.roomy == myHero.roomy){
+     if(b.roomx == myHero.roomx && b.roomy == myHero.roomy&&b.hp > 0){
       b.act();   
     b.show();}
       if (b.hp<=0) {

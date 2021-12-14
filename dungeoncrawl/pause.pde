@@ -14,6 +14,8 @@ Speed.act();
 textSize(60);
 back.act();
 back.show();
+Weapons.act();
+Weapons.show();
     fill(lavender);
   text("You have:"+ myHero.xp+" xp", 230, 170);
   text("HP:"+ myHero.hp, 230, 320);
@@ -30,8 +32,10 @@ back.show();
 
 }
 
+
+
 void pauseClicks() {
-  
+   if (Weapons.c){mode = SELECT;}
    
     if(Damage.clicked==true && myHero.xp >=5 && mode == pause){
       myHero.damage = myHero.damage + 1;

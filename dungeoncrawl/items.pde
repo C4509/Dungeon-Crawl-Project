@@ -17,13 +17,15 @@ class Drop extends GameObject{
     r = int(random(2));
     if (r == 0){
     w = new Rifle();
+    w.r = true;
     } else if(r == 1){
-      w = new Shooter();}
+      w = new Shooter();
+    w.s = true;}
       else if (r == 2){
         w = new Gun();
+        w.g = true;
       }
     currentact = health;
-    println(r);
   }
   
   

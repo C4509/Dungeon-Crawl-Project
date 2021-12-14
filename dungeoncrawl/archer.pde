@@ -11,6 +11,7 @@ class Archer extends Enemy {
     threshold = 100;
     hp = 50;
     xp = 3;
+     s = 1;
   }
   //behaviour functions
   void show() {
@@ -22,7 +23,7 @@ class Archer extends Enemy {
       text(hp, location.x-10, location.y+5);
     }
   }
-
+ 
   void act() {
     super.act();
     shotTimer ++;
@@ -43,7 +44,7 @@ class Archer extends Enemy {
     //}
     //    i++;
     //}
-
+if (mode == gameover){hp = 50;}
     }
     
   }

@@ -6,7 +6,9 @@ class Hero extends GameObject {
   final int maxhp;
   int damage;
   float trans;
+  int score;
   AnimatedGIF currentact;
+  boolean o = false;
 
   Weapon myWeapon;
 
@@ -15,8 +17,8 @@ class Hero extends GameObject {
   Hero() {
     super();
     size = 30;
-    hp=1000;
-    maxhp = hp;
+    hp=100;
+    maxhp = 100;
     roomx=1;
     roomy=1;
     speed = 5;
@@ -81,15 +83,19 @@ class Hero extends GameObject {
     //teleport through exits
     if (north != #FFFFFF && location.y == 120 && location.x<= width/2 + 50 && location.x >= width/2 -50) {
       roomy--;
+      Wipe();
       location = new PVector(400, height-120);
     } else if (south != #FFFFFF && location.y == height-120 && location.x<= width/2 + 50 && location.x >= width/2 -50) {
       roomy++;
+      Wipe();
       location = new PVector(400, 120);
     } else  if (east != #FFFFFF && location.x == width-120 && location.y<= width/2 + 50 && location.y >= width/2 -50) {
+      Wipe();
       roomx++;
       location = new PVector(120, 400);
     } else
       if (west != #FFFFFF && location.x == 120 && location.y<= width/2 + 50 && location.y >= width/2 -50) {
+        Wipe();
         roomx--;
         location = new PVector(width-120, 400);
       }
@@ -132,13 +138,13 @@ class Hero extends GameObject {
         Drop item = (Drop) b;
         if(item.type == 0){
           myWeapon = item.w;
+          o = true;
         }
      else if(item.type == AMMO){
             myWeapon.bulletSpeed = myWeapon.bulletSpeed + 5;
           }
        else if(item.type == HEALTH){
             hp = hp + 100;
-            println("ow");
            if (hp > maxhp){
              hp = maxhp; 
            }
@@ -149,12 +155,26 @@ class Hero extends GameObject {
       i++;
     }         
 
-      if (hp <=0){
+      if (hp <=0 || score >= 67){
     mode = gameover;
-
+score = 0;
   }
   }
-  void mouseReleased(){
-
+ 
+ void Wipe(){
+    int i = 0;
+    while (i <   myObjects.size()) {
+      GameObject b =   myObjects.get(i);
+      if (b instanceof Bullet){
+        if(inroom(b)){
+          myObjects.remove(i);
+         
+        }
+       
+      }
+       i++;
+    }
+   
+   
  }
   }
