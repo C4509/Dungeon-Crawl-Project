@@ -20,6 +20,18 @@ void keyPressed() {
     if (keyCode == 'p' || keyCode == 'P') { 
     pkey = true;
   }
+  if(keyCode == '1'){
+    onekey = true;
+  }
+   if(keyCode == '2'){
+    twokey = true;
+  }
+    if(keyCode == '3'){
+    threekey = true;
+  }
+   if(keyCode == '4'){
+    fourkey = true;
+  }
 }
 
 void keyReleased() {
@@ -43,5 +55,17 @@ void keyReleased() {
   }
     if (keyCode == 'p' || keyCode == 'P') { 
     pkey = false;
+  }
+   if(keyCode == '1'){
+    onekey = false;
+  }
+   if(keyCode == '2'){
+    twokey = false;
+  }
+    if(keyCode == '3'){
+    threekey = false;
+  }
+    if(keyCode == '4'){
+    fourkey = false;
   }
 }

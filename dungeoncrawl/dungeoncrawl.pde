@@ -48,11 +48,13 @@ Button Damage;
 Button Speed;
 Button HP;
 Button back;
+Button back2;
 Button Back1;
 Button Back2;
 Button Weapons;
 Bullet bu;
 Button ADVANCE;
+BAG myBAG;
 
 //arraylists
 ArrayList<GameObject> myObjects;
@@ -78,10 +80,13 @@ void setup() {
   Speed = new Button("a", 150, 420, 50, 70, 255,0,255,orange);
   Damage = new Button("a", 150, 570, 50, 70, 255,0,255,orange);
   back = new Button("BACK TO GAME", 50, 670, 375, 100, aqua, bl, pink, lavender);
+  back2 = new Button("BACK TO PAUSE", 50, 670, 375, 100, aqua, bl, pink, lavender);
   Weapons = new Button("WEAPONS", 475, 670, 275, 100, aqua, bl, pink, lavender);
   Back1 = new Button("INTRO", 300, 570, 200, 100, mgreen,orange,blue, 0);
   Back2 = new Button("INTRO", 150, 670, 200, 100, mgreen,orange,blue, 0);
   ADVANCE = new Button("ADVANCE", 475, 670, 275, 100, mgreen,orange,blue, 0);
+  myBAG = new BAG();
+
   //load arraylists
   myObjects = new ArrayList<GameObject>();
   dark = new ArrayList<Darkness>(1000);

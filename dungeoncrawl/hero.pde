@@ -11,7 +11,7 @@ class Hero extends GameObject {
   boolean o = false;
 
   Weapon myWeapon;
-
+  BAG myBAG;
   //constructor
 
   Hero() {
@@ -29,17 +29,18 @@ class Hero extends GameObject {
     f = 100;
     trans = 255;
     damage = 0;
+    myBAG = new BAG();
   }
   //behaviour functions
   void show() {
     currentact.show(location.x, location.y, size/1.5, size);
-     fill(0, trans);
-     rect(location.x-15, location.y-(size/2+12), 30, 6);
-     fill(red, 0);
-     rect(location.x-13, location.y-(size/2+11), 28, 4);
-     fill(green, trans);
-     float lifemeter = map(hp, 0, 100, 0, 28);
-     rect(location.x-13, location.y-(size/2+11), lifemeter, 4);
+    fill(0, trans);
+    rect(location.x-15, location.y-(size/2+12), 30, 6);
+    fill(red, 0);
+    rect(location.x-13, location.y-(size/2+11), 28, 4);
+    fill(green, trans);
+    float lifemeter = map(hp, 0, 100, 0, 28);
+    rect(location.x-13, location.y-(size/2+11), lifemeter, 4);
   }
   void act() {
     super.act();
@@ -104,77 +105,89 @@ class Hero extends GameObject {
     if (spacekey) {
       myWeapon.shoot();
     }
-    
+
     //movement animation
-    if (abs(velocity.y)>abs(velocity.x)){
-      if(velocity.y > 0){
+    if (abs(velocity.y)>abs(velocity.x)) {
+      if (velocity.y > 0) {
         currentact = mandown;
-      } else { currentact = manup;
-      } 
-    }else { if(velocity.x > 0){
+      } else { 
+        currentact = manup;
+      }
+    } else { 
+      if (velocity.x > 0) {
         currentact = manright;
       } else currentact = manleft;
-      }
-      
-    
+    }
+
+
     //taking damage
     f ++;
     int i = 0;
     while (i <   myObjects.size()) {
       GameObject b =   myObjects.get(i);
-      if (b instanceof Enemy && (Collide(b)) && f >+t){
+      if (b instanceof Enemy && (Collide(b)) && f >+t) {
         hp = hp-1;
         println(hp);
         f = 0;
       }
-      if(b instanceof EBullet && (Collide(b))&&f>=t){
+      if (b instanceof EBullet && (Collide(b))&&f>=t) {
         hp = hp-1;
         println(hp);
         b.hp=0;
         f = 0;
       }
       //picking up items
-      if(b instanceof Drop&&(Collide(b))){
+      if (b instanceof Drop&&(Collide(b))) {
         Drop item = (Drop) b;
-        if(item.type == 0){
+        if (item.type == 0) {
           myWeapon = item.w;
           o = true;
+        } else if (item.type == AMMO) {
+          myWeapon.bulletSpeed = myWeapon.bulletSpeed + 5;
+        } else if (item.type == HEALTH) {
+          hp = hp + 100;
+          if (hp > maxhp) {
+            hp = maxhp;
+          }
         }
-     else if(item.type == AMMO){
-            myWeapon.bulletSpeed = myWeapon.bulletSpeed + 5;
-          }
-       else if(item.type == HEALTH){
-            hp = hp + 100;
-           if (hp > maxhp){
-             hp = maxhp; 
-           }
-          }
-          item.hp=0;
-        
+        item.hp=0;
       }
       i++;
-    }         
+    }   
 
-      if (hp <=0 || score >= 67){
-    mode = gameover;
-score = 0;
+    if (mode == SELECT) {
+      myBAG.act();
+      //BAG item = (BAG) b;
+      if (onekey) {
+        myWeapon = myBAG.e;
+      }
+      if (twokey && myBAG.e.s == true) {
+        myWeapon = myBAG.e;
+      }
+      if (threekey && myBAG.e.r == true) {
+        myWeapon = myBAG.e;
+      } 
+      if (fourkey && myBAG.e.r == true) {
+        myWeapon = myBAG.e;
+      }
+    } else {
+    }
+    if (hp <=0 || score >= 67) {
+      mode = gameover;
+      score = 0;
+    }
   }
-  }
- 
- void Wipe(){
+
+  void Wipe() {
     int i = 0;
     while (i <   myObjects.size()) {
       GameObject b =   myObjects.get(i);
-      if (b instanceof Bullet){
-        if(inroom(b)){
+      if (b instanceof Bullet) {
+        if (inroom(b)) {
           myObjects.remove(i);
-         
         }
-       
       }
-       i++;
+      i++;
     }
-   
-   
- }
   }
+}
