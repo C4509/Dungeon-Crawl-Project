@@ -52,5 +52,9 @@
     
     
   }
-  
+ 
+  void erase(){
+    fill(0);
+    stroke(0);
+  }
 }

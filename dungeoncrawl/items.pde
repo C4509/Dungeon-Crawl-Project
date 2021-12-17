@@ -17,13 +17,16 @@ class Drop extends GameObject{
     r = int(random(2));
     if (r == 0){
     w = new Rifle();
+    ri = true;
     w.r = true;
     } else if(r == 1){
       w = new Shooter();
-    w.s = true;}
+    w.s = true;
+        s = true;}
       else if (r == 2){
         w = new Gun();
         w.g = true;
+        g = true;
       }
     currentact = health;
   }
@@ -31,10 +34,11 @@ class Drop extends GameObject{
   
   //behaviour functions
   void show(){
+    if (inroom(myHero)){
     stroke(lavender);
     strokeWeight(2);
     fill(f);
-
+    
     if(f == pink){
       type = GUN;
        circle(location.x, location.y, size);
@@ -48,11 +52,15 @@ class Drop extends GameObject{
       type = HEALTH;
       currentact.show(location.x, location.y, size, size);
     }
-    
+    }
     
   }
   
-  
+  void erase(){
+    super.erase();
+    
+    
+  }
   
   
   

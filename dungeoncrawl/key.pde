@@ -20,16 +20,16 @@ void keyPressed() {
     if (keyCode == 'p' || keyCode == 'P') { 
     pkey = true;
   }
-  if(keyCode == '1'){
+  if(keyCode == '1'|| keyCode == '!'){
     onekey = true;
   }
-   if(keyCode == '2'){
+   if(keyCode == '2'|| keyCode == '@'){
     twokey = true;
   }
-    if(keyCode == '3'){
+    if(keyCode == '3'|| keyCode == '#'){
     threekey = true;
   }
-   if(keyCode == '4'){
+    if(keyCode == '4'|| keyCode == '$'){
     fourkey = true;
   }
 }
@@ -56,16 +56,16 @@ void keyReleased() {
     if (keyCode == 'p' || keyCode == 'P') { 
     pkey = false;
   }
-   if(keyCode == '1'){
+   if(keyCode == '1'|| keyCode == '!'){
     onekey = false;
   }
-   if(keyCode == '2'){
+   if(keyCode == '2'|| keyCode == '@'){
     twokey = false;
   }
-    if(keyCode == '3'){
+    if(keyCode == '3'|| keyCode == '#'){
     threekey = false;
   }
-    if(keyCode == '4'){
+    if(keyCode == '4'|| keyCode == '$'){
     fourkey = false;
   }
 }

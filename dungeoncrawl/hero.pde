@@ -150,28 +150,12 @@ class Hero extends GameObject {
             hp = maxhp;
           }
         }
-        item.hp=0;
+        item.hp = 0;
       }
       i++;
     }   
 
-    if (mode == SELECT) {
-      myBAG.act();
-      //BAG item = (BAG) b;
-      if (onekey) {
-        myWeapon = myBAG.e;
-      }
-      if (twokey && myBAG.e.s == true) {
-        myWeapon = myBAG.e;
-      }
-      if (threekey && myBAG.e.r == true) {
-        myWeapon = myBAG.e;
-      } 
-      if (fourkey && myBAG.e.r == true) {
-        myWeapon = myBAG.e;
-      }
-    } else {
-    }
+
     if (hp <=0 || score >= 67) {
       mode = gameover;
       score = 0;

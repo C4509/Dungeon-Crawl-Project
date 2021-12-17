@@ -9,6 +9,9 @@ final int game = 1;
 final int pause = 2;
 final int gameover = 3;
 final int SELECT = 4;
+boolean ri;
+boolean s;
+boolean  g;
 //item types
 final int GUN = 0;
 final int AMMO = 1;
